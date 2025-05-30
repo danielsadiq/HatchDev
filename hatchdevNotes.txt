@@ -1,0 +1,42 @@
+HTTP helps us transfer multimedia through the web.
+DNS – A mapper, it is the phonebook of the internet, it maps a domain name to a specific IP address, it maps names between numbers.
+ISP
+The World Wide Web
+Your localhost is a callback address
+
+OSI-Model an open system interconnection. 
+Data link layer.
+Everything in SWE is about sending data from one place to another.
+Distributed systems.
+SSL, TLS
+TCP/UDP are transfer protocols.
+
+Client server architecture – The server can do all things, all you just need to do is to ask, send a request (the client sends the request). After the request is sent, a response is gotten.
+The types of requests you can make are POST, GET, PUT (update), DELETE.
+What is URL, URI, e.t.c
+We need to understand “.com”
+
+The aim of networking is to share data.
+The internet is the connection of many networks across the globe.
+TCP is the transport layer
+
+Data: Data is anything and everything, 1s and 0s. Data can be text, numbers, multimedia, images, audio. Data is sent in packets. All forms of data is transmitted in 1s and 0s
+The ISP gives you access to the world.
+Not only the Web uses the internet. Internet uses protocol, one of those protocol is HTTP for multimedia, FTP, SMTP.
+Every device has a MAC Address. IP Address is what the router uses to recognize you.
+
+HTTP Status code shows the status of your request.
+Latency is the time for a client to send a request and get a response. Often times, we want low latency.
+This is as a result of network bandwidth. You want low latency and high bandwidth.
+
+Things to read:
+What is the internet
+What is HTTP
+What is Domain Name System?
+What is URL
+
+The IP address and the port is what you are mapping to the domain name.
+
+
+
+Abstract classes.
