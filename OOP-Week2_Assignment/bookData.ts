@@ -1,0 +1,98 @@
+export const popularBooks = [
+  {
+    bookId: 1,
+    title: "The Lord of the Rings",
+    publicationDate: "1954-07-29",
+    author: "J.R.R. Tolkien",
+    pages: 1178,
+    copiesAvailable: 10,
+  },
+  {
+    bookId: 2,
+    title: "Pride and Prejudice",
+    publicationDate: "1813-01-28",
+    author: "Jane Austen",
+    pages: 279,
+    copiesAvailable: 10,
+  },
+  {
+    bookId: 3,
+    title: "The Hitchhiker's Guide to the Galaxy",
+    publicationDate: "1979-10-12",
+    author: "Douglas Adams",
+    pages: 224,
+    copiesAvailable: 10,
+  },
+  {
+    bookId: 4,
+    title: "To Kill a Mockingbird",
+    publicationDate: "1960-07-11",
+    author: "Harper Lee",
+    pages: 281,
+    copiesAvailable: 10,
+  },
+  {
+    bookId: 5,
+    title: "The Book Thief",
+    publicationDate: "2005-03-01",
+    author: "Markus Zusak",
+    pages: 592,
+    copiesAvailable: 10,
+  },
+  {
+    bookId: 6,
+    title: "The Da Vinci Code",
+    publicationDate: "2003-03-18",
+    author: "Dan Brown",
+    pages: 454,
+    copiesAvailable: 10,
+  },
+  {
+    bookId: 7,
+    title: "The Girl with the Dragon Tattoo",
+    publicationDate: "2005-08-16",
+    author: "Stieg Larsson",
+    pages: 465,
+    copiesAvailable: 10,
+  },
+  {
+    bookId: 8,
+    title: "The Hunger Games",
+    publicationDate: "2008-09-14",
+    author: "Suzanne Collins",
+    pages: 374,
+    copiesAvailable: 10,
+  },
+  {
+    bookId: 9,
+    title: "The Fault in Our Stars",
+    publicationDate: "2012-01-10",
+    author: "John Green",
+    pages: 313,
+    copiesAvailable: 10,
+  },
+  {
+    bookId: 10,
+    title: "1984",
+    publicationDate: "1949-06-08",
+    author: "George Orwell",
+    pages: 328,
+    copiesAvailable: 10,
+  },
+];
+
+export const members = [
+  { memberId: "M001", name: "Alice Smith", phone: "555-1234", borrowedBooks: [] },
+  // { memberId: "M002", name: "Bob Johnson", phone: "555-5678", borrowedBooks: [] },
+  // { memberId: "M003", name: "Charlie Brown", phone: "555-9012", borrowedBooks: [] },
+  // { memberId: "M004", name: "Diana Miller", phone: "555-3456", borrowedBooks: [] },
+  // { memberId: "M005", name: "Ethan Davis", phone: "555-7890", borrowedBooks: [] },
+  // { memberId: "M006", name: "Fiona Wilson", phone: "555-2345", borrowedBooks: [] },
+  // { memberId: "M007", name: "George Lee", phone: "555-6789", borrowedBooks: [] },
+  // { memberId: "M008", name: "Hannah Clark", phone: "555-0123", borrowedBooks: [] },
+  // { memberId: "M009", name: "Isaac Taylor", phone: "555-4567", borrowedBooks: [] },
+  // { memberId: "M010", name: "Julia Moore", phone: "555-8901", borrowedBooks: [] },
+];
+
+
+
