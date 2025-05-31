@@ -40,3 +40,5 @@ The IP address and the port is what you are mapping to the domain name.
 
 
 Abstract classes.
+
+Array data type is a reference data type, its saves the location of wherever we are accessing.
