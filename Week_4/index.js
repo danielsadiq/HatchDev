@@ -44,6 +44,11 @@ var ArrayDaniel = /** @class */ (function () {
         }
         this.data[0] = val;
     };
+    ArrayDaniel.prototype.map = function (fxn) {
+        for (var i = 0; i < this.calcLength(); i++) {
+            this.data[i] = fxn(this.data[i]);
+        }
+    };
     ArrayDaniel.prototype.print = function () {
         var arr = [];
         for (var i = 0; i < this.calcLength(); i++) {
@@ -62,9 +67,10 @@ hello.push(24);
 hello.push(48);
 hello.push(96);
 hello.push(192);
+hello.map(function (x) { return x * 2; });
 // hello.pop();
-hellox.push("Yes");
-hellox.print();
+// hellox.push("Yes")
+// hellox.print();
 // hello.shift();
 // hello.unshift("Yes");
 hello.print();

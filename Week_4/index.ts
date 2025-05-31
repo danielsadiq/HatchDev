@@ -1,6 +1,6 @@
 class ArrayDaniel<T>{
-  length:number;
-  data: {};
+  private length:number;
+  private data: {};
   constructor(...args: T[]){
     this.data = {};
     this.length = 0;
@@ -21,7 +21,6 @@ class ArrayDaniel<T>{
   }
   push(info:T){
     this.calcLength();
-    // console.log(this.calcLength());
     this.data[this.length] = info 
   }
   pop(){
@@ -41,9 +40,14 @@ class ArrayDaniel<T>{
     }
     this.data[0] = val;
   }
+  map(fxn:Function){
+    for (let i=0; i < this.calcLength(); i++){
+      this.data[i] = fxn(this.data[i]);
+    }
+  }
 
   print(){
-    const arr = [];
+    const arr: T[] = [];
     for (let i=0; i < this.calcLength(); i++){
       arr.push(this.data[i])
     }
@@ -61,10 +65,11 @@ hello.push(24);
 hello.push(48);
 hello.push(96);
 hello.push(192);
+hello.map((x: number)=>x*2)
 // hello.pop();
 
-hellox.push("Yes")
-hellox.print();
+// hellox.push("Yes")
+// hellox.print();
 
 // hello.shift();
 // hello.unshift("Yes");
