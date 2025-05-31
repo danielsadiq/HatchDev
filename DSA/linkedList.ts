@@ -23,14 +23,21 @@ class LinkedList {
   insertAtPosition(item:any, index:number){
     let count = 0;
     let itr = this.head
-    while (count < index-1){
+    while (itr!== null && count < index-1){
       // console.log(itr.data)
       itr = itr.next;
       count +=1
     }
+    if (itr === null){
+      console.log("Invalid Index")
+      return
+    }
     const node = new Nodex(item, itr.next)
     itr.next = node
     console.log(itr?.next.data)
+  }
+  deleteAtPosistion(item:any, index:number){
+    let count = 0;
   }
   print(){
     let itr: Nodex | null = this.head
