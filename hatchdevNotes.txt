@@ -42,3 +42,36 @@ The IP address and the port is what you are mapping to the domain name.
 Abstract classes.
 
 Array data type is a reference data type, its saves the location of wherever we are accessing.
+
+
+OBJECT ORIENTED PROGRAMMING
+Functional and Object oriented.
+A programming paradigm that organizes software design around objects which can represent real world entities and their interactions.
+
+Objects – key value pair, a representation of a real-life entity. Key value is same as property value.
+Method – an action that object can perform.
+Encapsulation, Inheritance, Abstraction, Polymorphism.
+A class is a blueprint/template for creating objects.
+Object is an instance of a class.
+Note: it isn’t every time you would need a constructor, but use one most times.
+Package.json holds information and configuration about your project.
+Npm init
+To install typescript globally: npm i -g typescript
+To confirm it is successfully installed: typescript –v
+To install typescript into your project as a dev dependency: npm install -D typescript
+Npx tsc –init – This will create a tsconfig.json file
+Create your index.ts file.
+To compile your typescript code, you do: tsc index.ts
+To keep your compiler on watch mode: Run the command tsc –watch
+
+Read on types of functions
+Polymorphism - You can call the same method on different types of objects and have them to behave differently.
+Access Modifiers: labels given to properties and methods to specify what can access it…There are four main ones
+Public, private, protected
+Private: can only be accessed within that class where it is defined.
+Protected: can be accessed within the class and the subclass.
+Read-only: The property can only be read, but not modified.
+
+Static methods are those that belong to the class itself and not the instances. It is used when managing shared state.
+
+
