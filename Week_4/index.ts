@@ -1,7 +1,7 @@
-class ArrayDaniel{
+class ArrayDaniel<T>{
   length:number;
   data: {};
-  constructor(...args: any[]){
+  constructor(...args: T[]){
     this.data = {};
     this.length = 0;
     for (let i=0; i < arguments.length; i++){
@@ -19,8 +19,9 @@ class ArrayDaniel{
       return this.data[val]
     }
   }
-  push(info:any){
+  push(info:T){
     this.calcLength();
+    // console.log(this.calcLength());
     this.data[this.length] = info 
   }
   pop(){
@@ -33,7 +34,7 @@ class ArrayDaniel{
     }
     return this.data
   }
-  unshift(val:any){
+  unshift(val:T){
     const len = this.calcLength();
     for (let i=0; i < len; i++){
       this.data[i+1] = this.data[i];
@@ -43,7 +44,7 @@ class ArrayDaniel{
 
   print(){
     const arr = [];
-    for (let i=0; i < this.calcLength()-1; i++){
+    for (let i=0; i < this.calcLength(); i++){
       arr.push(this.data[i])
     }
     console.log(arr)
@@ -51,14 +52,20 @@ class ArrayDaniel{
 }
 
 // const hello = new ArrayDaniel(1,2,3,4,5);
-const hello = new ArrayDaniel();
+const hello = new ArrayDaniel<number>();
+const hellox = new ArrayDaniel<string>();
 
 hello.push(6);
 hello.push(12);
 hello.push(24);
 hello.push(48);
 hello.push(96);
+hello.push(192);
+// hello.pop();
 
-hello.shift();
+hellox.push("Yes")
+hellox.print();
+
+// hello.shift();
 // hello.unshift("Yes");
 hello.print();
