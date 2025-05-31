@@ -1,4 +1,4 @@
-class MyArray{
+class ArrayDaniel{
   length:number;
   data: {};
   constructor(...args: any[]){
@@ -50,8 +50,8 @@ class MyArray{
   }
 }
 
-// const hello = new MyArray(1,2,3,4,5);
-const hello = new MyArray();
+// const hello = new ArrayDaniel(1,2,3,4,5);
+const hello = new ArrayDaniel();
 
 hello.push(6);
 hello.push(12);
