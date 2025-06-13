@@ -35,6 +35,9 @@ var HashTable = /** @class */ (function () {
             }
         }
     };
+    HashTable.prototype.deleteItem = function (key) {
+        var h = this.getHash(key);
+    };
     return HashTable;
 }());
 var t = new HashTable();

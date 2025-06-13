@@ -37,6 +37,9 @@ class HashTable {
       }
     }
   }
+  deleteItem(key:string){
+    const h = this.getHash(key);
+  }
 }
 
 const t = new HashTable();
