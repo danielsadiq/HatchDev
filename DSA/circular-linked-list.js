@@ -1,23 +1,44 @@
+var CircNode = /** @class */ (function () {
+    function CircNode(data, next) {
+        if (next === void 0) { next = null; }
+        this.data = data;
+        this.next = next;
+    }
+    return CircNode;
+}());
 var CircularLinkedList = /** @class */ (function () {
     function CircularLinkedList() {
         this.head = null;
         this.count = 0;
     }
+    CircularLinkedList.prototype.isEmpty = function () {
+        return this.head === null;
+    };
     CircularLinkedList.prototype.insertAtBeginning = function (item) {
-        var node = new CircNode(item, this.head);
-        this.head = node;
+        var newNode = new CircNode(item, this.head);
+        if (this.isEmpty()) {
+            this.head = newNode;
+            newNode.next = this.head;
+        }
+        else {
+            var itr = this.head;
+            while (itr.next !== this.head) {
+                itr = itr.next;
+            }
+            itr.next = newNode;
+            newNode.next = this.head;
+        }
+        this.count += 1;
     };
     CircularLinkedList.prototype.insertAtEnd = function (item) {
+        var newNode = new CircNode(item, this.head);
         var itr = this.head;
-        if (this.head === null) {
-            this.insertAtBeginning(item);
-        }
         while (itr) {
-            if (itr.next === null) {
-                itr.next = new CircNode(item, null);
+            itr = itr.next;
+            if (itr.next = this.head) {
+                itr.next = newNode;
                 break;
             }
-            itr = itr.next;
         }
     };
     CircularLinkedList.prototype.insertAtPosition = function (item, index) {
@@ -26,7 +47,6 @@ var CircularLinkedList = /** @class */ (function () {
         while (itr !== null && count < index - 1) {
             // console.log(itr.data)
             itr = itr.next;
-            count += 1;
         }
         if (itr === null) {
             console.log("Invalid Index");
@@ -34,7 +54,6 @@ var CircularLinkedList = /** @class */ (function () {
         }
         var node = new CircNode(item, itr.next);
         itr.next = node;
-        console.log(itr === null || itr === void 0 ? void 0 : itr.next.data);
     };
     CircularLinkedList.prototype.print = function () {
         var itr = this.head;
@@ -42,21 +61,19 @@ var CircularLinkedList = /** @class */ (function () {
         while (itr) {
             str += "".concat(itr.data, " --> ");
             itr = itr.next;
+            if (itr === this.head) {
+                break;
+            }
         }
         console.log(str);
     };
     return CircularLinkedList;
 }());
-var CircNode = /** @class */ (function () {
-    function CircNode(data, next) {
-        this.data = data;
-        this.next = next;
-    }
-    return CircNode;
-}());
 var cll = new CircularLinkedList();
 cll.insertAtBeginning(123);
 cll.insertAtBeginning(34);
 cll.insertAtBeginning(98);
-cll.insertAtEnd(97);
+cll.insertAtBeginning(23);
+cll.insertAtPosition(27, 2);
+cll.insertAtBeginning(70);
 cll.print();

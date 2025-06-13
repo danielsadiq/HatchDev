@@ -1,3 +1,12 @@
+class CircNode{
+  data:any;
+  next:CircNode | null;
+  constructor(data:any, next:CircNode|null = null){
+    this.data = data
+    this.next = next
+  }
+}
+
 class CircularLinkedList{
   head: any;
   count: number;
@@ -5,21 +14,34 @@ class CircularLinkedList{
     this.head = null;
     this.count = 0;
   }
+  isEmpty(){
+    return this.head === null;
+  }
   insertAtBeginning(item:any){
-    const node = new CircNode(item, this.head)
-    this.head = node
+    const newNode = new CircNode(item, this.head)
+    if (this.isEmpty()){
+      this.head = newNode
+      newNode.next = this.head
+    }
+    else{
+      let itr = this.head;
+      while (itr.next !== this.head){
+        itr = itr.next
+      }
+      itr.next = newNode
+      newNode.next = this.head
+    }
+    this.count += 1
   }
   insertAtEnd(item:any){
+    const newNode = new CircNode(item, this.head)
     let itr = this.head
-    if (this.head === null){
-      this.insertAtBeginning(item)
-    }
     while (itr){
-      if (itr.next === null){
-        itr.next = new CircNode(item, null);
+      itr = itr.next
+      if (itr.next = this.head){
+        itr.next = newNode
         break
       }
-      itr = itr.next;
     }
   }
   insertAtPosition(item:any, index:number){
@@ -28,7 +50,6 @@ class CircularLinkedList{
     while (itr!== null && count < index-1){
       // console.log(itr.data)
       itr = itr.next;
-      count +=1
     }
     if (itr === null){
       console.log("Invalid Index")
@@ -36,7 +57,6 @@ class CircularLinkedList{
     }
     const node = new CircNode(item, itr.next)
     itr.next = node
-    console.log(itr?.next.data)
   }
   print(){
     let itr: CircNode | null = this.head
@@ -44,17 +64,11 @@ class CircularLinkedList{
     while (itr){
       str += `${itr.data} --> `
       itr = itr.next;
+      if (itr === this.head){
+        break
+      }
     }
     console.log(str)
-  }
-}
-
-class CircNode{
-  data:any;
-  next:CircNode | null;
-  constructor(data:any, next:CircNode|null){
-    this.data = data
-    this.next = next
   }
 }
 
@@ -62,5 +76,7 @@ const cll = new CircularLinkedList();
 cll.insertAtBeginning(123)
 cll.insertAtBeginning(34)
 cll.insertAtBeginning(98)
-cll.insertAtEnd(97)
+cll.insertAtBeginning(23)
+cll.insertAtPosition(27,2)
+cll.insertAtBeginning(70)
 cll.print()
