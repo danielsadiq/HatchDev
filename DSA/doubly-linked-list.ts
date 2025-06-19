@@ -59,4 +59,5 @@ const dll = new DoublyLinkedList();
 dll.insertAtBeginning(34);
 dll.insertAtBeginning(29);
 dll.insertAtEnd(15);
+dll.insertAtEnd(25);
 dll.print();
