@@ -1,24 +1,22 @@
-var DoubNode = /** @class */ (function () {
-    function DoubNode(data, next, prev) {
-        if (next === void 0) { next = null; }
-        if (prev === void 0) { prev = null; }
+"use strict";
+class DoubNode {
+    constructor(data, next = null, prev = null) {
         this.data = data;
         this.next = next;
         this.prev = prev;
     }
-    return DoubNode;
-}());
-var DoublyLinkedList = /** @class */ (function () {
-    function DoublyLinkedList() {
+}
+class DoublyLinkedList {
+    constructor() {
         this.head = null;
         this.tail = null;
         this.count = 0;
     }
-    DoublyLinkedList.prototype.isEmpty = function () {
+    isEmpty() {
         return this.head === null;
-    };
-    DoublyLinkedList.prototype.insertAtBeginning = function (data) {
-        var newNode = new DoubNode(data);
+    }
+    insertAtBeginning(data) {
+        const newNode = new DoubNode(data);
         if (this.isEmpty()) {
             this.head = newNode;
             this.tail = newNode;
@@ -29,9 +27,9 @@ var DoublyLinkedList = /** @class */ (function () {
             this.head = newNode;
         }
         this.count += 1;
-    };
-    DoublyLinkedList.prototype.insertAtEnd = function (data) {
-        var newNode = new DoubNode(data);
+    }
+    insertAtEnd(data) {
+        const newNode = new DoubNode(data);
         if (this.isEmpty()) {
             this.insertAtBeginning(data);
         }
@@ -41,20 +39,20 @@ var DoublyLinkedList = /** @class */ (function () {
             this.tail = newNode;
         }
         this.count += 1;
-    };
-    DoublyLinkedList.prototype.print = function () {
-        var itr = this.head;
-        var str = "";
+    }
+    print() {
+        let itr = this.head;
+        let str = "";
         while (itr) {
-            str += "".concat(itr.data, " --> ");
+            str += `${itr.data} --> `;
             itr = itr.next;
         }
         console.log(str);
-    };
-    return DoublyLinkedList;
-}());
-var dll = new DoublyLinkedList();
+    }
+}
+const dll = new DoublyLinkedList();
 dll.insertAtBeginning(34);
 dll.insertAtBeginning(29);
 dll.insertAtEnd(15);
+dll.insertAtEnd(25);
 dll.print();

@@ -1,3 +1,12 @@
+class Nodex {
+  data: any;
+  next: Nodex | null;
+  constructor(data: any, next: Nodex | null) {
+    this.data = data;
+    this.next = next;
+  }
+}
+
 class LinkedList {
   head: Nodex | null;
   constructor(){
@@ -47,14 +56,6 @@ class LinkedList {
       itr = itr.next;
     }
     console.log(str)
-  }
-}
-class Nodex {
-  data: any;
-  next: Nodex | null;
-  constructor(data: any, next: Nodex | null) {
-    this.data = data;
-    this.next = next;
   }
 }
 

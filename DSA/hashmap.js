@@ -1,20 +1,21 @@
-var HashTable = /** @class */ (function () {
-    function HashTable() {
+"use strict";
+class HashTable {
+    constructor() {
         this.max = 100;
-        this.arr = Array.from({ length: 100 }, function () { return []; });
+        this.arr = Array.from({ length: 100 }, () => []);
     }
-    HashTable.prototype.getHash = function (key) {
-        var h = 0;
-        for (var i = 0; i < key.length; i++) {
+    getHash(key) {
+        let h = 0;
+        for (let i = 0; i < key.length; i++) {
             h += key.charCodeAt(i);
         }
         return h % this.max;
-    };
-    HashTable.prototype.setItem = function (key, value) {
-        var h = this.getHash(key);
-        var found = false;
+    }
+    setItem(key, value) {
+        const h = this.getHash(key);
+        let found = false;
         if (this.arr[h] > 0) {
-            for (var i = 0; i < this.arr[h].length; i++) {
+            for (let i = 0; i < this.arr[h].length; i++) {
                 if (this.arr[h][i][0] == key) {
                     this.arr[h][i][1] = value;
                     found = true;
@@ -26,21 +27,20 @@ var HashTable = /** @class */ (function () {
             // this.arr[h].push(new Set([key, value]));
             this.arr[h].push([key, value]);
         }
-    };
-    HashTable.prototype.getItem = function (key) {
-        var h = this.getHash(key);
-        for (var i = 0; i < this.arr[h].length; i++) {
+    }
+    getItem(key) {
+        const h = this.getHash(key);
+        for (let i = 0; i < this.arr[h].length; i++) {
             if (this.arr[h][i].length === 2 && this.arr[h][i][0] === key) {
                 return this.arr[h][i][1];
             }
         }
-    };
-    HashTable.prototype.deleteItem = function (key) {
-        var h = this.getHash(key);
-    };
-    return HashTable;
-}());
-var t = new HashTable();
+    }
+    deleteItem(key) {
+        const h = this.getHash(key);
+    }
+}
+const t = new HashTable();
 t.setItem("6-Mar", 27);
 t.setItem("Mar-6", 58);
 t.setItem("»", 27);
