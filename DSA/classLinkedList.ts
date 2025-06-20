@@ -55,14 +55,14 @@ class SinglyLinkedList{
     return itr
   }
    print(){
-    let itr: SinglyLinkedListNode | null = this.head
-    let str: string = ""
+    let itr: SinglyLinkedListNode | null = this.head;
+    let str: string = "";
     while (itr != this.tail){
-      str += `${itr?.value} --> `
+      str += `${itr?.value} --> `;
       itr = itr.next;
     }
     str += `${this.tail.value}`
-    console.log(str)
+    console.log(str);
   }
 }
 
@@ -72,5 +72,5 @@ myList.append(15);
 myList.append(40);
 myList.append(50);
 myList.prepend(1);
-myList.insert(23, 2)
+myList.insert(23, 2);
 myList.print();
