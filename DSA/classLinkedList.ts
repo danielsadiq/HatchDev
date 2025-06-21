@@ -39,7 +39,7 @@ class SinglyLinkedList{
     let count = 0;
     let itr = this.head;
     while (count < index-1){
-      itr = itr.next;
+      itr = itr.next as SinglyLinkedListNode ;
       count ++;
     }
     newNode.next = itr.next as SinglyLinkedListNode;
@@ -59,7 +59,7 @@ class SinglyLinkedList{
     let str: string = "";
     while (itr != this.tail){
       str += `${itr?.value} --> `;
-      itr = itr.next;
+      itr = itr.next as SinglyLinkedListNode;
     }
     str += `${this.tail.value}`
     console.log(str);
