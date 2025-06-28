@@ -12,21 +12,18 @@ class DoublyNode{
 class DoublyLinkedList{
   head: DoublyNode | null;
   tail: DoublyNode | null;
-  count: number;
+  length: number;
 
   constructor(){
     this.head = null;
     this.tail = null;
-    this.count = 0;
+    this.length = 0;
   }
   insertFirst(value:number){
     const newNode =  new DoublyNode(value);
     this.head = newNode;
     this.tail = newNode;
-    this.count++
-  }
-  isEmpty(){
-    return this.count === 0;
+    this.length++
   }
   push(value:number){
     const newNode = new DoublyNode(value);
@@ -35,14 +32,54 @@ class DoublyLinkedList{
     }else{
       this.tail.next = newNode;
       newNode.prev = this.tail;
-      this.tail = newNode 
-      this.count ++
+      this.tail = newNode; 
+      this.length ++;
     }
+  }
+  insert(value:number, index:number){
+    if (index > this.length){
+      console.log("Index too big, value added to the end");
+      this.push(value);
+    }
+    if (this.length === 0){
+      this.insertFirst(value);
+    }
+    const newNode = new DoublyNode(value);
+    const prevNode = this.traverseToIndex(index-1);
+    const nextNode = this.traverseToIndex(index);
+    prevNode.next = newNode;
+    newNode.prev = prevNode;
+    newNode.next = nextNode;
+    this.length ++;
+  }
+  traverseToIndex(index:number){
+    let count = 0;
+    let itr = this.head
+    while (count < index){
+      itr = itr?.next as DoublyNode
+      count ++
+    }
+    return itr
+  }
+  isEmpty(){
+    return this.length === 0;
+  }
+  print(){
+    let myStr = "";
+    let itr = this.head;
+    while (itr){
+      myStr += `${itr.data} --> `;
+      itr = itr.next
+    }
+    console.log(myStr)
   }
 }
 
 const myList = new DoublyLinkedList()
-myList.push(7);
-myList.push(77);
+myList.push(4);
+myList.push(23);
+myList.push(32);
+myList.push(37);
 myList.push(91);
-console.log(myList);
+myList.insert(53, 2);
+myList.print();
