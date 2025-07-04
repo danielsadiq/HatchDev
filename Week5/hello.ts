@@ -89,3 +89,5 @@
 
 let xarr = [1,2,3,4,5];
 console.log(xarr.pop());
+
+console.log(7 > null)
