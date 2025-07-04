@@ -1,20 +1,21 @@
-class ListNode<K,V> {
+class MyListNode<K,V> {
   key: K;
   value: V;
-  next: ListNode<K,V> | null;
+  next: MyListNode<K,V> | null;
   constructor(key:K, value:V){
     this.key = key;
     this.value = value;
     this.next = null;
   }
 }
-class HashTable {
+
+class MyHashTable<K extends string, V> {
   MAX: number;
-  arr: [string, any][][];
+  arr: (MyListNode<K,V> | null)[]
 
   constructor() {
     this.MAX = 100;
-    this.arr = new Array(this.MAX).fill(null).map(() => []);
+    this.arr = new Array(this.MAX).fill(null)
   }
 
   private getHash(key: string): number {
@@ -25,40 +26,17 @@ class HashTable {
     return h % this.MAX;
   }
 
-  set(key: string, value: any): void {
+  // set(key: string, value: any): void {
+  set(key: K, value: V): void {
     const h = this.getHash(key);
     let found = false;
-    for (let i = 0; i < this.arr[h].length; i++) {
-      const el = this.arr[h][i];
-      if (el.length === 2 && el[0] === key) {
-        this.arr[h][i] = [key, value];
-        found = true;
-        break;
-      }
+    const newItem = new MyListNode(key, value);
+    if (this.arr[h] === null){
+      this.arr[h] = newItem
+    }else{
+      newItem.next = this.arr[h];
+      this.arr[h] = newItem
     }
-    if (!found) {
-      this.arr[h].push([key, value]);
-    }
-  }
-
-  get(key: string): any | undefined {
-    const h = this.getHash(key);
-    for (let i = 0; i < this.arr[h].length; i++) {
-      const el = this.arr[h][i];
-      // Original Python code had 'break' here, which would only check the first element.
-      // Removed 'break' to allow checking all elements in the bucket.
-      if (el.length === 2 && el[0] === key) {
-        return el[1]; // Return the value, not the [key, value] tuple
-      }
-    }
-    return undefined; // Return undefined if key not found
-  }
-
-  delete(key: string): void {
-    const h = this.getHash(key);
-    // The original Python code cleared the entire bucket.
-    // To delete only the specific key, we need to filter the array.
-    this.arr[h] = this.arr[h].filter(el => el[0] !== key);
   }
 }
 
